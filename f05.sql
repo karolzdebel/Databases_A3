@@ -9,10 +9,11 @@ BEGIN
 		select COUNT(*) into tCount FROM vendor NATURAL JOIN transaction
 			WHERE vend.Vno = Vno;
 
+		raise notice 'Vno:% | Vname:% | New Balance:%',vend.Vno,vend.Vname,vend.Vbalance+tCount;
+		
 		UPDATE vendor SET Vbalance = Vbalance + tCount
 			WHERE Vno = vend.Vno; 
 
-		raise notice 'Vno:% | Vname:% | New Balance:%',vend.Vno,vend.Vname,vend.Vbalance;
 
 	END LOOP;
 	

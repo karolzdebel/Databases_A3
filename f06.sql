@@ -1,18 +1,18 @@
-CREATE OR REPLACE FUNCTION f05() RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f06() RETURNS integer AS $$
 DECLARE
 	vend vendor%ROWTYPE;
-	tCount integer;
+	vendFee real;
 BEGIN
 	
 	FOR vend IN SELECT * FROM vendor LOOP
 
-		select COUNT(*) into tCount FROM vendor NATURAL JOIN transaction
-			WHERE vend.Vno = Vno;
-
-		UPDATE vendor SET Vbalance = Vbalance + tCount
+		vendFee = vend.Vbalance*0.04;
+		
+		raise notice 'Vname:% | Fee Charged:% | New Balance:%',vend.Vname,vendFee,vend.Vbalance-vendFee;
+		
+		UPDATE vendor SET Vbalance = Vbalance - vendFee
 			WHERE Vno = vend.Vno; 
 
-		raise notice 'Vno:% | Vname:% | New Balance:%',vend.Vno,vend.Vname,vend.Vbalance;
 
 	END LOOP;
 	
