@@ -1,6 +1,5 @@
 CREATE OR REPLACE FUNCTION a3data() RETURNS void AS $$
 BEGIN
-raise notice 'table should be added';
 
 CREATE TABLE IF NOT EXISTS vendor(
 	Vno TEXT PRIMARY KEY NOT NULL,
