@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f01(name text) RETURNS void AS $$
+CREATE OR REPLACE FUNCTION p1(name text) RETURNS void AS $$
 DECLARE
 	c1 cursor for select Vname,T_Date,Amount from customer NATURAL JOIN transaction NATURAL JOIN vendor WHERE customer.Cname = name;
 	pName text;

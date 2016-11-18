@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f03(acc text, nm text, prov text, lt real) RETURNS void AS $$
+CREATE OR REPLACE FUNCTION p3(acc text, nm text, prov text, lt real) RETURNS void AS $$
 DECLARE
 	cust customer%ROWTYPE;
 BEGIN

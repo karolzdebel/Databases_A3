@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION create_tables() RETURNS void AS $$
+CREATE OR REPLACE FUNCTION a3_data() RETURNS void AS $$
 BEGIN
 raise notice 'table should be added';
 

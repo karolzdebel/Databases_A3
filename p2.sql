@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f02(name text) RETURNS void AS $$
+CREATE OR REPLACE FUNCTION p2(name text) RETURNS void AS $$
 DECLARE
 	cust customer%ROWTYPE;
 	pNum text;

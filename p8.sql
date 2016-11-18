@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f08(tNum text, vNum text, accNum text, amt real) RETURNS void AS $$
+CREATE OR REPLACE FUNCTION p8(tNum text, vNum text, accNum text, amt real) RETURNS void AS $$
 DECLARE
 	cust customer%ROWTYPE;
 	vend vendor%ROWTYPE;
