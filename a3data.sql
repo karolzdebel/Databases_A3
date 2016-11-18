@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION create_tables() RETURNS INTEGER AS $$
+CREATE OR REPLACE FUNCTION create_tables() RETURNS void AS $$
 BEGIN
 raise notice 'table should be added';
 
@@ -43,7 +43,6 @@ INSERT INTO transaction VALUES
 	('T4','V4','A2','2016-03-20',1613),
 	('T5','V4','A3','2016-07-31',3312);
 
-RETURN 0;
 END;
 
 $$ LANGUAGE plpgsql;
