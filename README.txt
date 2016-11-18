@@ -1,3 +1,4 @@
 -All primary keys including Account, Vnum, Tnum, are strings since in the slide example letters are part of the primary key. 
+-Due to the above point, if typing in a particular primary key for example A1, it needs to be written as 'A1'
 -Parameters for function 3 are : (Account, Cname, Province, Crlimit), balance is exluded since its 0 by default.
 -Parametes for function 8 are (Tnum, vNum, Account, Amount)
