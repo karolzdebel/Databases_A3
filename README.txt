@@ -1,0 +1,3 @@
+-All primary keys including Account, Vnum, Tnum, are strings since in the slide example letters are part of the primary key. 
+-Parameters for function 3 are : (Account, Cname, Province, Crlimit), balance is exluded since its 0 by default.
+-Parametes for function 8 are (Tnum, vNum, Account, Amount)
