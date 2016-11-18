@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f03(acc text, nm text, prov text, lt real) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f03(acc text, nm text, prov text, lt real) RETURNS void AS $$
 DECLARE
 	cust customer%ROWTYPE;
 BEGIN
@@ -11,6 +11,5 @@ BEGIN
 
 	END LOOP;
 	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;

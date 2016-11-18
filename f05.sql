@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f05() RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f05() RETURNS void AS $$
 DECLARE
 	vend vendor%ROWTYPE;
 	tCount integer;
@@ -17,6 +17,5 @@ BEGIN
 
 	END LOOP;
 	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;

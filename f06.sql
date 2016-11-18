@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f06() RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f06() RETURNS void AS $$
 DECLARE
 	vend vendor%ROWTYPE;
 	vendFee real;
@@ -15,7 +15,5 @@ BEGIN
 
 
 	END LOOP;
-	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;

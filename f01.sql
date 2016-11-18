@@ -1,6 +1,6 @@
-CREATE OR REPLACE FUNCTION f01(name text) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f01(name text) RETURNS void AS $$
 DECLARE
-	c1 cursor for select Cname,T_Date,Amount from customer NATURAL JOIN transaction WHERE customer.Cname = name;
+	c1 cursor for select Vname,T_Date,Amount from customer NATURAL JOIN transaction NATURAL JOIN vendor WHERE customer.Cname = name;
 	pName text;
 	pData date;
 	pAmount real;
@@ -14,7 +14,5 @@ BEGIN
 	
 	END LOOP;
 	close c1;
-	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;

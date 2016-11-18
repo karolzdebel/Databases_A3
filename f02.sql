@@ -1,23 +1,23 @@
-CREATE OR REPLACE FUNCTION f02(name text) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f02(name text) RETURNS void AS $$
 DECLARE
-	c1 cursor for select Account,Cname,Province 
-		from customer NATURAL JOIN transaction NATURAL JOIN vendor 
-		WHERE vendor.Vname = name;
+	cust customer%ROWTYPE;
 	pNum text;
 	pName text;
 	pProvince text;
+	transNum integer;
 BEGIN
-	open c1;
-
 	raise notice 'Found following customers who had transactions with %',name;
-	LOOP
-		fetch c1 into pNum,pName,pProvince;
-		exit when not found;
-		raise notice 'number:% | name:% | province:%',pNum,pName,pProvince;
-	
+	FOR cust in SELECT * FROM customer LOOP
+		
+		transNum:= 0;
+		select COUNT(*),Account,Cname,Province into transNum,pNum,Pname,pProvince from transaction NATURAL JOIN vendor NATURAL JOIN customer 
+			WHERE Vname = name AND cust.Cname = Cname
+			GROUP BY Account,Cname,Province;
+		
+		if (transNum > 0) THEN 
+			raise notice 'number:% | name:% | province:%',pNum,pName,pProvince;
+		END IF;	
+
 	END LOOP;
-	close c1;
-	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;

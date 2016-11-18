@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f04() RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION f04() RETURNS void AS $$
 DECLARE
 	cust customer%ROWTYPE;
 	res record;
@@ -28,7 +28,5 @@ BEGIN
 		
 		END IF;
 	END LOOP;
-	
-	RETURN 0;
 END;
 $$ LANGUAGE plpgsql;
